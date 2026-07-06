@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CW・Lancers 運用マニュアル | 副業支援事業部</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cw:#1A6FC4; --cw-l:#EBF4FF;
+  --l:#E06A1A; --l-l:#FFF0E8;
+  --faq:#7C3AED; --faq-l:#F5F3FF;
+  --acc:#0F7A5A; --acc-l:#ECFDF5;
+  --body:#F4F5F7; --white:#fff;
+  --border:#E4E7EC; --text:#1C1E21; --sub:#6B7280;
+  --warn-bg:#FFFBEB; --warn-b:#F59E0B;
+  --danger-bg:#FEF2F2; --danger-b:#EF4444;
+  --ok-bg:#F0FDF4; --ok-b:#22C55E;
+  --r:12px; --sh:0 1px 3px rgba(0,0,0,.07),0 4px 12px rgba(0,0,0,.05);
+}
+body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);color:var(--text);font-size:14px;line-height:1.7;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid var(--border);padding:0 1.25rem;position:sticky;top:0;z-index:200;height:52px;display:flex;align-items:center;justify-content:space-between;}
+.hdr-title{font-size:15px;font-weight:700;}
+.hdr-title span{color:var(--cw);}
+.hdr-date{font-size:11px;color:var(--sub);}
+
+/* TAB NAV */
+.nav{background:#fff;border-bottom:2px solid var(--border);display:flex;padding:0 .75rem;gap:0;position:sticky;top:52px;z-index:199;overflow-x:auto;}
+.nav::-webkit-scrollbar{display:none;}
+.tb{padding:0 1rem;height:46px;border:none;background:none;font-family:inherit;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .15s,border-color .15s;display:flex;align-items:center;gap:5px;}
+.tb:hover:not(.on){color:var(--text);}
+.tb.on.t-acc{color:var(--acc);border-bottom-color:var(--acc);}
+.tb.on.t-cw {color:var(--cw);border-bottom-color:var(--cw);}
+.tb.on.t-l  {color:var(--l);border-bottom-color:var(--l);}
+.tb.on.t-faq{color:var(--faq);border-bottom-color:var(--faq);}
+
+/* CONTENT */
+.tab-c{display:none;}.tab-c.on{display:block;}
+.wrap{max-width:740px;margin:0 auto;padding:1.75rem 1.25rem 4rem;}
+
+/* HERO */
+.hero{border-radius:var(--r);padding:1.1rem 1.4rem;margin-bottom:1.75rem;display:flex;align-items:center;gap:1rem;}
+.hero.t-acc{background:linear-gradient(135deg,#0F7A5A,#10B981);}
+.hero.t-cw {background:linear-gradient(135deg,#1A6FC4,#3B82F6);}
+.hero.t-l  {background:linear-gradient(135deg,#E06A1A,#F59E0B);}
+.hero.t-faq{background:linear-gradient(135deg,#7C3AED,#A78BFA);}
+.hero-icon{font-size:32px;flex-shrink:0;}
+.hero h1{font-size:18px;font-weight:700;color:#fff;}
+.hero p{font-size:12px;color:rgba(255,255,255,.85);margin-top:2px;}
+
+/* SECTION */
+.sec{margin-bottom:2rem;}
+.sec-hdr{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;}
+.sec-n{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.t-acc .sec-n{background:var(--acc);}
+.t-cw  .sec-n{background:var(--cw);}
+.t-l   .sec-n{background:var(--l);}
+.t-faq .sec-n{background:var(--faq);}
+.sec-ttl{font-size:15px;font-weight:700;}
+
+/* STEP CARD (collapsible) */
+.sc{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:.6rem;overflow:hidden;}
+.sc-h{display:flex;align-items:center;gap:.7rem;padding:.75rem 1rem;cursor:pointer;user-select:none;}
+.sc-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;}
+.t-acc .sc-badge{background:var(--acc-l);color:var(--acc);}
+.t-cw  .sc-badge{background:var(--cw-l);color:var(--cw);}
+.t-l   .sc-badge{background:var(--l-l);color:var(--l);}
+.t-faq .sc-badge{background:var(--faq-l);color:var(--faq);}
+.sc-ttl{font-size:13px;font-weight:600;flex:1;line-height:1.4;}
+.sc-arr{font-size:11px;color:var(--sub);transition:transform .2s;flex-shrink:0;}
+.sc.open .sc-arr{transform:rotate(180deg);}
+.sc-b{display:none;padding:.85rem 1rem 1rem;border-top:1px solid #F0F2F5;background:#FAFBFC;}
+.sc.open .sc-b{display:block;}
+
+/* CONTENT ELEMENTS */
+.pl{list-style:none;}
+.pl li{padding:.35rem 0 .35rem 1.35rem;position:relative;font-size:13px;border-bottom:1px solid #F0F0F0;line-height:1.6;}
+.pl li:last-child{border-bottom:none;}
+.pl li::before{content:'▶';position:absolute;left:0;font-size:9px;top:.5rem;color:var(--sub);}
+.sub-l{font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--sub);margin:.85rem 0 .35rem;text-transform:uppercase;}
+.notice{border-radius:8px;padding:.6rem .9rem;font-size:12.5px;margin:.65rem 0;line-height:1.6;}
+.notice.w{background:var(--warn-bg);border-left:3px solid var(--warn-b);}
+.notice.d{background:var(--danger-bg);border-left:3px solid var(--danger-b);}
+.notice.ok{background:var(--ok-bg);border-left:3px solid var(--ok-b);}
+.notice.info{background:#EFF6FF;border-left:3px solid #3B82F6;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin:.65rem 0;}
+.cc{background:#fff;border:1px solid var(--border);border-radius:8px;padding:.7rem;}
+.cc h4{font-size:11.5px;font-weight:700;color:var(--sub);margin-bottom:.35rem;}
+.cc ul{list-style:none;}
+.cc li{font-size:12.5px;line-height:1.6;padding:.2rem 0 .2rem 1.1rem;position:relative;}
+.cc li::before{content:'•';position:absolute;left:0;color:var(--sub);}
+
+/* FLOW */
+.flow{display:flex;flex-direction:column;}
+.fi{display:flex;align-items:flex-start;gap:.65rem;}
+.fl{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:32px;}
+.fd{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.t-acc .fd{background:var(--acc);}
+.t-cw  .fd{background:var(--cw);}
+.t-l   .fd{background:var(--l);}
+.fline{width:2px;flex:1;min-height:20px;background:var(--border);margin:2px 0;}
+.fc{background:#fff;border:1px solid var(--border);border-radius:9px;padding:.55rem .85rem;font-size:12.5px;flex:1;margin-bottom:6px;line-height:1.55;}
+.fc strong{font-weight:700;display:block;}
+.fc span{color:var(--sub);font-size:11.5px;}
+
+/* TEMPLATE */
+.tmpl{margin:.65rem 0;}
+.tmpl-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:.3rem;}
+.tmpl-lbl{font-size:11px;font-weight:700;color:var(--sub);}
+.cpbtn{font-size:11px;padding:3px 10px;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--sub);cursor:pointer;font-family:inherit;transition:all .15s;}
+.cpbtn:hover{background:var(--body);}
+.cpbtn.done{background:var(--ok-bg);color:#15803D;border-color:var(--ok-b);}
+.tmpl-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-size:12.5px;line-height:1.75;white-space:pre-line;}
+
+/* RISK TABLE */
+.rt{width:100%;border-collapse:collapse;font-size:12px;margin:.7rem 0;}
+.rt th{background:#FAFBFC;font-weight:700;font-size:11px;padding:.55rem .75rem;text-align:left;border-bottom:2px solid var(--border);color:var(--sub);}
+.rt td{padding:.55rem .75rem;border-bottom:1px solid #F0F2F5;vertical-align:top;line-height:1.5;}
+.rt tr:last-child td{border-bottom:none;}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;white-space:nowrap;}
+.bd{background:var(--danger-bg);color:#B91C1C;border:1px solid #FECACA;}
+.bw{background:var(--warn-bg);color:#92400E;border:1px solid #FDE68A;}
+
+/* CW ACCOUNT STEPS (large numbered) */
+.big-step{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.85rem;}
+.big-n{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
+.t-acc .big-n{background:var(--acc);}
+.big-body{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;flex:1;}
+.big-body h4{font-size:13.5px;font-weight:700;margin-bottom:.3rem;}
+.big-body p{font-size:12.5px;color:#374151;line-height:1.6;}
+
+/* SCROLL TOP */
+.stbtn{position:fixed;bottom:1.25rem;right:1.25rem;width:38px;height:38px;border-radius:50%;background:rgba(28,30,33,.75);color:#fff;border:none;cursor:pointer;font-size:15px;display:none;align-items:center;justify-content:center;z-index:300;}
+.stbtn.on{display:flex;}
+
+/* QUICK WARN BAR */
+.qwarn{background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:.55rem 1rem;font-size:12.5px;color:#9A3412;display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;font-weight:500;}
+
+@media(max-width:580px){.two{grid-template-columns:1fr;}.tb{padding:0 .75rem;font-size:12px;}.hero h1{font-size:16px;}.wrap{padding:1.25rem 1rem 3rem;}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-title">副業支援事業部 <span>運用マニュアル</span></div>
+  <div class="hdr-date">更新：2026.07</div>
+</header>
+
+<nav class="nav">
+  <button class="tb t-acc on" onclick="sw('acc')">🔑 CWアカウント作成</button>
+  <button class="tb t-cw"     onclick="sw('cw')">📋 CW運用マニュアル</button>
+  <button class="tb t-l"      onclick="sw('l')">🟠 Lancers運用マニュアル</button>
+  <button class="tb t-faq"    onclick="sw('faq')">❓ よくある質問・注意事項</button>
+</nav>
+
+<!-- =================== TAB: アカウント作成 =================== -->
+<div id="tab-acc" class="tab-c t-acc on">
+<div class="wrap">
+  <div class="hero t-acc">
+    <div class="hero-icon">🔑</div>
+    <div>
+      <h1>CWアカウント作成手順</h1>
+      <p>Outlookメール作成 → CW登録 → 会員情報入力の3ステップ</p>
+    </div>
+  </div>
+
+  <div class="qwarn">⚠️ 入力する情報（ID・パスワード・氏名・生年月日）は毎回スプレッドシートで担当範囲を確認してから入力する</div>
+
+  <!-- STEP 1: Outlook -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">1</div><div class="sec-ttl">Outlookで新しいメールアドレスを作る</div></div>
+    <div class="notice info">📌 CW登録に <b>Outlook</b> を使う理由 → LBS（管理システム）との連携に必要なため</div>
+
+    <div class="big-step"><div class="big-n">1</div><div class="big-body"><h4>Outlookのサイトを開く</h4><p>ブラウザで <b>microsoft.com</b> のOutlookページにアクセスし、「<b>無料アカウントを作成</b>」を選択する。</p></div></div>
+    <div class="big-step"><div class="big-n">2</div><div class="big-body"><h4>新しいメールアドレスを入力</h4><p>「新しいメール」欄に <b>スプシで割り振られた担当範囲のID</b> を入力。ドメインは <b>@outlook.com</b> を選んで「次へ」。</p></div></div>
+    <div class="big-step"><div class="big-n">3</div><div class="big-body"><h4>パスワードを作成</h4><p>スプシに記載された担当範囲の <b>パスワード</b> を入力して「次へ」。</p></div></div>
+    <div class="big-step"><div class="big-n">4</div><div class="big-body"><h4>国/地域・生年月日を入力</h4><p>国/地域は「<b>日本</b>」を選択し、スプシで指定された担当範囲の <b>生年月日</b> を入力して「次へ」。</p></div></div>
+    <div class="big-step"><div class="big-n">5</div><div class="big-body"><h4>姓・名を入力</h4><p>スプシで指定された担当範囲の <b>氏名</b> を入力し、必要に応じて情報受け取りのチェックを設定後「次へ」。</p></div></div>
+    <div class="big-step"><div class="big-n">6</div><div class="big-body"><h4>人間であることを確認</h4><p>表示されたボタンを <b>長押し</b> して認証を完了する。</p></div></div>
+
+    <div class="notice ok">✅ 完了すると <b>outlook.live.com</b> の受信トレイが開き、Outlookチームから案内メールが届く</div>
+  </div>
+
+  <!-- STEP 2: CW登録 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">2</div><div class="sec-ttl">クラウドワークスに新規登録する</div></div>
+
+    <div class="big-step"><div class="big-n">1</div><div class="big-body"><h4>クラウドワークスのサイトを開く</h4><p><b>crowdworks.jp</b> にアクセスし、「<b>会員登録（無料）</b>」を選択する。</p></div></div>
+    <div class="big-step"><div class="big-n">2</div><div class="big-body"><h4>メールアドレスで仮登録</h4><p>「メールアドレスではじめる」欄に、①で作成した <b>Outlookのメールアドレス</b> を入力し「会員登録する（無料）」をクリック。</p></div></div>
+    <div class="big-step"><div class="big-n">3</div><div class="big-body"><h4>仮登録完了の画面を確認</h4><p>「仮登録ありがとうございます」の画面が表示されたら、登録メールアドレスに確認メールが送信された状態。</p></div></div>
+    <div class="big-step"><div class="big-n">4</div><div class="big-body"><h4>Outlookの受信トレイを確認</h4><p>先ほど開いたOutlook（outlook.live.com）の受信トレイに戻り、「<b>【クラウドワークス】新規会員登録を完了してください</b>」というメールを開く。</p></div></div>
+    <div class="big-step"><div class="big-n">5</div><div class="big-body"><h4>本登録用URLをクリック</h4><p>メール本文内の <b>https://crowdworks.jp/user/new?key=...</b> のURLをクリックし、本登録ステップ（基本情報入力画面）へ進む。</p></div></div>
+
+    <div class="notice w">⚠️ 本登録用URLの有効期限は <b>発行から24時間</b>。期限切れの場合は再度メールアドレス入力（仮登録）からやり直す。</div>
+  </div>
+
+  <!-- STEP 3: 会員情報 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">3</div><div class="sec-ttl">会員情報を入力して登録を完了する</div></div>
+    <div class="notice info">📌 基本情報 → 詳細情報 → 発注カテゴリ → 確認の4ステップで登録します</div>
+
+    <div class="big-step"><div class="big-n">1</div><div class="big-body"><h4>基本情報</h4><p>ユーザー名・パスワードはスプシで割り振られた担当範囲のものを入力（①で作成したOutlookと揃える）。「主な利用方法」は <b>仕事を依頼する（発注したい）</b>、「個人/法人」は <b>個人</b> を選択。</p></div></div>
+    <div class="big-step"><div class="big-n">2</div><div class="big-body"><h4>詳細情報</h4><p>氏名・氏名（かな）、郵便番号・都道府県はスプシで指定された担当範囲のものを入力（①で入力した内容と揃える）。「海外に居住」は <b>いいえ</b> を選択し「次に進む」。</p></div></div>
+    <div class="big-step"><div class="big-n">3</div><div class="big-body"><h4>発注カテゴリ</h4><p>依頼したい業務カテゴリを複数選択（例：Web制作 ／ ライティング・翻訳 ／ データ入力など）し「入力内容を確認する」。</p></div></div>
+    <div class="big-step"><div class="big-n">4</div><div class="big-body"><h4>入力の確認 → 登録完了</h4><p>入力内容を確認し、利用規約・個人情報の取り扱いに同意のチェックを入れ、<b>reCAPTCHA（私はロボットではありません）</b> を完了して登録する。</p></div></div>
+
+    <div class="two">
+      <div class="cc" style="border-top:3px solid var(--ok-b)"><h4>✅ 登録完了の確認</h4><p>「会員登録が完了しました」の表示でマイページに移動</p></div>
+      <div class="cc" style="border-top:3px solid var(--ok-b)"><h4>✅ ログイン確認</h4><p>画面右上にユーザー名が表示されていればログイン済み</p></div>
+    </div>
+    <div class="notice ok">✅ 登録完了後はマイページから「新しい仕事を依頼」を選ぶことで、カテゴリを選択して仕事の依頼（募集作成）に進める。</div>
+  </div>
+
+  <!-- 仕事依頼 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">4</div><div class="sec-ttl">仕事依頼（募集投稿）の手順</div></div>
+
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">手順</span><span class="sc-ttl">投稿の基本ステップ</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="flow">
+          <div class="fi"><div class="fl"><div class="fd">1</div><div class="fline"></div></div><div class="fc"><strong>「仕事依頼 → 新しい仕事を依頼」を押下</strong><span>ブラウザとアプリを交互に使うとBANリスクが下がる</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">2</div><div class="fline"></div></div><div class="fc"><strong>カテゴリを選択（前回と被らないように）</strong><span>SNS運用 / その他ライティング / Webデザイン / 簡単作業 etc…</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">3</div><div class="fline"></div></div><div class="fc"><strong>仕事の内容を入力（Step2はスキップOK）</strong><span>投稿文はChatGPTに作成依頼。タイトルは毎回変える</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">4</div><div class="fline"></div></div><div class="fc"><strong>契約金額と支払方法を設定</strong><span>SNS運用：5〜10人 / 1〜3万円｜モニター：10〜20人 / 5千〜1万円</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">5</div></div><div class="fc"><strong>確認画面でチェック → 「この内容で登録する」</strong><span>「公開待ち」のまま時間がかかる場合はAI検知待ち→そのまま待つ</span></div></div>
+        </div>
+        <div class="notice ok">💡 投稿時間は <b>9時 / 12時 / 18時</b> のいずれか。連続投稿は2〜3日間隔で。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- =================== TAB: CW運用マニュアル =================== -->
+<div id="tab-cw" class="tab-c t-cw">
+<div class="wrap">
+  <div class="hero t-cw">
+    <div class="hero-icon">📋</div>
+    <div>
+      <h1>CW運用マニュアル</h1>
+      <p>応募対応・サービス外申請・LINE誘導まで全フロー</p>
+    </div>
+  </div>
+
+  <div class="qwarn">⚠️ 最初の1日はその都度LINEで確認しながら対応すること</div>
+
+  <!-- 1日の基本型 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">1</div><div class="sec-ttl">1日の基本型・優先順位</div></div>
+
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">基本</span><span class="sc-ttl">朝投稿 → 夜対応のリズム</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="two">
+          <div class="cc" style="border-top:3px solid var(--cw)"><h4>⏰ 投稿タイミング</h4><ul><li><b>9時台</b>がメイン</li><li>難しければ <b>12時頃</b></li><li>遅くとも <b>15時まで</b></li><li>金・土は新規投稿しない</li></ul></div>
+          <div class="cc" style="border-top:3px solid var(--cw)"><h4>💬 応募者対応</h4><ul><li>メイン：<b>20:00〜22:30</b></li><li>返信漏れ時のみ23時台</li><li>申請：<b>1時間3件まで</b></li><li>メッセージ：<b>1時間5件まで</b></li></ul></div>
+        </div>
+        <div class="sub-l">迷った時の優先順位</div>
+        <ul class="pl">
+          <li>承認前に外部リンクを案内しない</li>
+          <li>否認された応募者には追加連絡しない</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">チェック</span><span class="sc-ttl">投稿前チェックリスト</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li>タイトルが直近投稿と似すぎていない</li>
+          <li>冒頭・仕事内容・締め方が前回とほぼ同じではない</li>
+          <li>LINE、電話番号、メールアドレスを直接書いていない</li>
+          <li>外部フォームURLやQRコードを載せていない</li>
+          <li>外部窓口は承認後に案内する形になっている</li>
+          <li>SNS運用の実作業が伝わる内容になっている</li>
+          <li>雇用契約に見える表現がない（勤務時間・シフトなど）</li>
+          <li>報酬や成果を誇大に見せていない</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 応募フロー -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">2</div><div class="sec-ttl">応募〜LINE誘導フロー</div></div>
+
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">フロー</span><span class="sc-ttl">全体ステップ（6段階）</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="flow">
+          <div class="fi"><div class="fl"><div class="fd">1</div><div class="fline"></div></div><div class="fc"><strong>応募者をスプシに入力・重複確認</strong><span>ユーザーネームは必ずコピペ。重複（F列赤）は対応しない。法人はスルー</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">2</div><div class="fline"></div></div><div class="fc"><strong>応募対応メッセージ＋サービス外連絡申請を送信</strong><span>定型文①を使用。iPhoneやスマートフォンで実施する場合は、アプリSimejiの定型文登録が便利です。</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">3</div><div class="fline"></div></div><div class="fc"><strong>返信を確認してから申請を実施</strong><span>同意後はなるべく早く申請する</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">4</div><div class="fline"></div></div><div class="fc"><strong>承認を待つ（目安1〜3時間 / 日祝は翌平日）</strong><span>申請中に連絡が来たら定型文②を送る</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">5</div><div class="fline"></div></div><div class="fc"><strong>承認後：公式LINE誘導文を送信</strong><span>定型文③を使用。自分のリンクを入れる</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">6</div></div><div class="fc"><strong>未追加で12時間→掘り返し❶ / さらに24時間→掘り返し❷</strong><span>2通送っても反応なければ放置OK</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">定型文①</span><span class="sc-ttl">応募対応メッセージ＋サービス外連絡申請</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">定型文①</span><button class="cpbtn" onclick="cp(this,'m1')">コピー</button></div>
+        <div class="tmpl-box" id="m1">〇〇様
+
+この度は弊社募集へご応募いただき、誠にありがとうございます。
+業務内容と今後の進行について、業務遂行上どうしても必要となる画面共有を用いた詳細説明がございます。
+そのため、クラウドワークス規約に則り、「サービス外連絡申請」を行わせていただきたく存じます。
+（契約・報酬はすべてクラウドワークス上で完結し、外部ツールの利用は必要最小限に限定いたします）
+
+まずは申請を進めて問題ございませんでしょうか。
+
+▼ 今後の流れ
+弊社がクラウドワークス事務局へ「サービス外連絡申請」を提出
+
+事務局より承認メールが到着（目安：1〜3時間）
+
+承認後、〇〇様へ公式連絡窓口（外部ツール）をご案内 → 面談日程のご調整
+
+ご確認のほど、よろしくお願いいたします。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">定型文②</span><span class="sc-ttl">申請中に応募者から連絡が来た場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">定型文②</span><button class="cpbtn" onclick="cp(this,'m2')">コピー</button></div>
+        <div class="tmpl-box" id="m2">〇〇様
+ご対応ありがとうございます。
+
+先ほどクラウドワークス運営へ「サービス外連絡申請」を提出いたしました。
+承認までの目安は約1〜3時間ですので、今しばらくお待ちいただけますと幸いです。
+
+承認後、あらためて公式連絡窓口（外部ツール）のリンクをご案内し、日程調整に進ませていただきます。
+引き続きよろしくお願いいたします。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">定型文③</span><span class="sc-ttl">公式LINE誘導文（承認後に送る）</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice w">⚠️ リンク部分（〔公式窓口リンク：〕）に<b>自分のリンク</b>を入れてから送る</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">定型文③</span><button class="cpbtn" onclick="cp(this,'m3')">コピー</button></div>
+        <div class="tmpl-box" id="m3">〇〇様
+
+お待たせいたしました。
+クラウドワークス運営よりサービス外連絡の承認が下りましたので、ご連絡いたします。
+
+今後の業務説明および日程調整は、以下の公式連絡窓口にて進めさせていただきます。
+〔公式窓口リンク： 自分のリンク〕
+
+▼ ご対応いただきたいこと
+1．上記リンクを追加／アクセス
+2．初回メッセージのご案内をご確認のうえ、「担当窓口：佐々木」とお伝えいただきご予約をお願いいたします。
+
+※ 専用窓口へのご登録状況・ご予約内容につきましては、こちらで随時確認しておりますため、完了のご連絡は不要です。
+※ 面談内容やご質問につきましても、ご登録後は専用窓口にて担当いたします。
+
+なお、契約・報酬に関するやり取りは、引き続きクラウドワークス上で完結いたします。
+何卒よろしくお願いいたします。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">掘り返し❶</span><span class="sc-ttl">LINE未追加で12時間経過</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">掘り返し❶</span><button class="cpbtn" onclick="cp(this,'m4')">コピー</button></div>
+        <div class="tmpl-box" id="m4">〇〇様お世話になっております！
+
+以前お送りした資料はご確認いただけましたでしょうか？
+ご登録が確認できていないため、念のためご連絡差し上げました！
+
+こちらにご参加いただくと、面談日程を24時間いつでも選択でき、事前のご質問にもお答えできます。
+
+※ご安心ください※
+契約・報酬のお手続きはすべてCrowdWorks内で完結します。外部チャットは日程調整の効率化のための任意サポートです。
+
+ご連絡をお待ちしております。どうぞよろしくお願いいたします。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">掘り返し❷</span><span class="sc-ttl">掘り返し❶から24時間経過（最終）</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">掘り返し❷</span><button class="cpbtn" onclick="cp(this,'m5')">コピー</button></div>
+        <div class="tmpl-box" id="m5">〇〇様、その後ご確認いかがでしょうか？
+
+先日ご案内した公式チャットのリンク、まだ未登録のようでしたので再送いたします。
+【公式LINE】＿＿＿＿（24時間いつでも予約・事前質問OK）
+
+※契約・報酬はすべてCW上で完結。外部チャットは日程調整を円滑にする任意窓口です。
+
+今週分の初回説明枠が埋まり次第、一旦締切となりますのでお早めに追加いただけますと幸いです。ご連絡お待ちしております♪</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 対応パターン -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">3</div><div class="sec-ttl">よくある対応パターン（定型文）</div></div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">対応</span><span class="sc-ttl">顔出しなしでいいか聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">返信テンプレート</span><button class="cpbtn" onclick="cp(this,'p1')">コピー</button></div>
+        <div class="tmpl-box" id="p1">○○様、ご連絡ありがとうございます。
+
+お仕事のお話になるため、お顔を見ながらお話をさせていただいています。
+
+尚、面談は１対１で行いますのでご安心ください。</div></div>
+        <div class="notice d">🚫 それでも拒否された場合は<b>お断りする</b></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">対応</span><span class="sc-ttl">法人・株式会社からの応募</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice d">🚫 対象外。自己紹介文に「株式会社」と書いてある場合も同様</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">お断りテンプレート</span><button class="cpbtn" onclick="cp(this,'p2')">コピー</button></div>
+        <div class="tmpl-box" id="p2">○○様
+このたびは弊社募集案件にご興味をお寄せいただき、誠にありがとうございます。
+
+大変恐れ入りますが、本案件は【個人ワーカー様（個人事業主・副業希望者）限定】でお手伝いをお願いしております。
+
+恐れ入りますが今回の募集に関しましてはご応募をお控えいただけますと幸いです。
+何卒ご理解賜りますようお願い申し上げます。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">対応</span><span class="sc-ttl">辞退 / サービス外申請否認 / LINEリンクエラー</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="sub-l">辞退の場合</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">辞退テンプレート</span><button class="cpbtn" onclick="cp(this,'p3')">コピー</button></div>
+        <div class="tmpl-box" id="p3">かしこまりました。
+
+この度は弊社のお仕事にご応募いただきありがとうございました。
+○様の今後のご活躍を心よりお祈り申し上げます。</div></div>
+        <div class="sub-l">サービス外申請が否認された場合</div>
+        <div class="notice w">⚠️ <b>1人だけ否認された場合</b>→ 相手側の問題の可能性が高い。アカウントへの影響を避けるため<b>深く関わらず切る</b>方向で。</div>
+        <div class="notice d">🚨 <b>複数申請して複数否認された場合</b>→ アカウントがBANになった可能性が高い。<b>アカウントBAN時の対応を実施する</b>（よくある質問・注意事項タブ参照）</div>
+        <div class="sub-l">LINEリンクエラーになった場合</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">代替リンクテンプレート</span><button class="cpbtn" onclick="cp(this,'p4')">コピー</button></div>
+        <div class="tmpl-box" id="p4">お世話になっております。大変お待たせしております。
+
+こちらのリンクから登録をお願いできますでしょうか？
+https://lin.ee/SLTp8N8
+
+登録後、Xマーケ▶︎物販Xマーケに応募をお選びいただき、調整いただければと思います。
+
+ご不明点等ありましたら、ご連絡いただければ幸いです。
+よろしくお願いいたします！</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 返信漏れ防止 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">4</div><div class="sec-ttl">返信漏れ防止チェック（毎日確認）</div></div>
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">確認</span><span class="sc-ttl">朝・昼・20時前に必ずチェックする場所</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li><b>CW通知</b>：新規応募、返信、承認/否認の通知</li>
+          <li><b>メッセージ一覧</b>：未返信、既読漏れ、古い応募者</li>
+          <li><b>個別トーク履歴</b>：どこまで案内したか、申請済みか</li>
+          <li><b>メール通知</b>：承認/否認の通知</li>
+          <li><b>サービス外連絡申請の状態</b>：承認済み・否認・未申請</li>
+          <li><b>公式窓口登録報告</b>：登録完了の報告が来ているか</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- =================== TAB: Lancers =================== -->
+<div id="tab-l" class="tab-c t-l">
+<div class="wrap">
+  <div class="hero t-l">
+    <div class="hero-icon">🟠</div>
+    <div>
+      <h1>Lancers 運用マニュアル</h1>
+      <p>CW用と定型文を必ず使い分けること</p>
+    </div>
+  </div>
+
+  <div class="notice d">🚫 <b>定型文はCW用とLancers用で必ず使い分ける</b>（間違えると募集停止の可能性あり）</div>
+
+  <!-- 1. 投稿設定 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">1</div><div class="sec-ttl">投稿設定</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">設定</span><span class="sc-ttl">報酬・特徴の設定方法</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li>特徴は<b>任意・なしでもOK</b>。付けるなら「初心者OK」「カンタン」</li>
+          <li>報酬の合計が <b>30,000円</b> になるよう設定（例：200円×150件）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 応募確認 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">2</div><div class="sec-ttl">応募確認・対象者の判断</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">確認</span><span class="sc-ttl">応募の確認場所・対象者の判断基準</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice info">📌 応募は <b>「選定中」</b> から確認。1人ずつページを開いて確認 → スプシ入力 → メッセージ送信の順で。</div>
+        <div class="two">
+          <div class="cc" style="border-top:3px solid var(--ok-b)"><h4>✅ 対応OK</h4><ul><li>実績件数が<b>1桁</b></li><li>海外在住（タイなど）もOK</li></ul></div>
+          <div class="cc" style="border-top:3px solid var(--danger-b)"><h4>🚫 対応NG</h4><ul><li>実績件数が<b>10件以上</b></li><li><b>法人・株式会社</b>からの応募</li><li>勧誘メッセージ（見積もり・仕事紹介など）</li></ul></div>
+        </div>
+        <div class="sub-l">勧誘メッセージの見分け方</div>
+        <ul class="pl">
+          <li>「お仕事したいです」→ 通常の応募として対応OK</li>
+          <li>「お仕事の見積もりとりませんか？」「こういう仕事ありますよ」→ 勧誘 → スルー</li>
+        </ul>
+        <div class="notice w">⚠️ メールボックスに来たものは別（勧誘の可能性あり）→ 対応不要</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. フロー -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">3</div><div class="sec-ttl">やりとりフロー（Lancers版）</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">フロー</span><span class="sc-ttl">応募〜LINE誘導まで（CWとほぼ同じ）</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="flow">
+          <div class="fi"><div class="fl"><div class="fd">1</div><div class="fline"></div></div><div class="fc"><strong>「選定中」から応募者を1人ずつ確認</strong><span>提案内容を読んでからスプシに入力</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">2</div><div class="fline"></div></div><div class="fc"><strong>応募対応メッセージを送信</strong><span>⚠️ Lancers用の定型文を使う（CW用と別）</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">3</div><div class="fline"></div></div><div class="fc"><strong>返信が来たらサービス外連絡申請</strong><span>承認目安：1〜3時間 / 日祝は翌平日</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">4</div><div class="fline"></div></div><div class="fc"><strong>承認後：公式LINE誘導文を送信</strong><span>⚠️ Lancers用の定型文を使う</span></div></div>
+          <div class="fi"><div class="fl"><div class="fd">5</div><div class="fline"></div></div><div class="fc"><strong>未追加で12時間 → 掘り返し❶</strong></div></div>
+          <div class="fi"><div class="fl"><div class="fd">6</div></div><div class="fc"><strong>掘り返し❶から24時間 → 掘り返し❷</strong><span>2通送っても反応なければ放置OK</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. CW・Lancers同時運用 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">4</div><div class="sec-ttl">CW・Lancers同時運用のルール</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">ルール</span><span class="sc-ttl">同時運用時の注意点</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li>CWとLancersを<b>交互に投稿</b>し、連チャンにならないようにする</li>
+          <li>投稿の時間帯：<b>9時 / 12時 / 18時</b> のいずれか</li>
+          <li>現在の運用規模はまゆさんの指示に従う</li>
+          <li>画面共有に使うアプリは <b>Zoom</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">スカウト</span><span class="sc-ttl">CWスカウト機能の使い方</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li>「クラウドワーカーを探す」から候補者を探す</li>
+          <li>「相談する」ボタンを押してメッセージを送る</li>
+          <li>仕事依頼画面の「スカウト」チェックは<b>入れないこと</b>（依頼が非公開になる）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. システム調整中テンプレ -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">5</div><div class="sec-ttl">特殊状況の定型文</div></div>
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">定型文</span><span class="sc-ttl">システム調整中のLINE誘導文</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">📋 コピーして使う</span><button class="cpbtn" onclick="cp(this,'l1')">コピー</button></div>
+        <div class="tmpl-box" id="l1">XX様
+
+お待たせいたしました！
+クラウドワークスから承認がおりましたので、ご連絡いたします。
+それでは、面談の日程調整はこちらからお願いいたします✨
+担当者は「佐々木」を入力下さい。
+
+▼
+https://buppan.go-careercraft.com/join/U008
+
+※SafariまたはChromeで開くとスムーズです◎
+※直近の面談枠が埋まりやすいため、ご都合の良いお時間でお早めにご予約ください🙇‍♀️</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- =================== TAB: よくある質問・注意事項 =================== -->
+<div id="tab-faq" class="tab-c t-faq">
+<div class="wrap">
+  <div class="hero t-faq">
+    <div class="hero-icon">❓</div>
+    <div>
+      <h1>よくある質問・注意事項</h1>
+      <p>FAQ・利用制限リスク・BAN対策・アカウント管理</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">1</div><div class="sec-ttl">よくある質問（FAQ）</div></div>
+
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">投稿</span><span class="sc-ttl">投稿に関するQ&A</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li><b>投稿頻度は？</b>→ 1日1投稿（平日のみ）。2〜3日間隔で</li>
+          <li><b>投稿時間は？</b>→ 9時・12時・18時のいずれか</li>
+          <li><b>投稿文は毎回変える？</b>→ 文面は大きく変えなくてOK。<b>タイトルは毎回変える</b></li>
+          <li><b>下書き保存は？</b>→ はい。前日のうちに下書きしておくと便利</li>
+          <li><b>「公開待ち」のまま時間がかかる</b>→ CW側で投稿内容の審査中。しばらく経つと公開されますので、そのまま待つ</li>
+          <li><b>「ラフすぎるタイトル」は？</b>→「自宅でできる！〜」より「在宅でできる｜〜」の形式が審査に通りやすい</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">応募者</span><span class="sc-ttl">応募者対応に関するQ&A</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li><b>メッセージの〇〇様はニックネーム？</b>→ CW上のユーザーネームでOK</li>
+          <li><b>21時以降にメッセージ送っていい？</b>→ 特にルールなし。送ってOK</li>
+          <li><b>株式会社からの応募は？</b>→ 対応不要（スルー）</li>
+          <li><b>海外在住の方は？</b>→ 問題なく対応OK</li>
+          <li><b>サービス外申請の承認はいつ？</b>→ 目安1〜3時間。日祝は翌平日</li>
+          <li><b>サービス外申請が否認された（1人だけ）</b>→ 相手側の問題の可能性が高い。深く関わらず切る</li>
+          <li><b>サービス外申請が否認された（複数・全体的に）</b>→ アカウントBANの可能性あり。<b>「垢BAN対策・新アカウント作成」を確認して対応</b></li>
+          <li><b>「チャット上で業務説明を」と言われた</b>→ 質問内容をスクリーンショットして佐々木に確認</li>
+          <li><b>面談予約枠が埋まっていると言われた</b>→ システム不具合の可能性。佐々木に報告・確認</li>
+          <li><b>面談前「事前準備は？」と聞かれた</b>→ 特になし、と伝えてOK</li>
+          <li><b>業務の詳細を事前に教えてほしい</b>→ 詳細は面談でお伝えすることをまず伝える。何か特に知りたいことがあれば確認して佐々木に先に共有する</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Lancers</span><span class="sc-ttl">Lancers特有のQ&A</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li><b>報酬の単価・件数は？</b>→ 合計が30,000円になるよう設定（例：200円×150件）</li>
+          <li><b>仕事依頼の特徴・業種は？</b>→ 特徴は任意・なしでもOK。付けるなら「初心者OK」「カンタン」</li>
+          <li><b>定型文はCWと使い分ける？</b>→ はい。必ず使い分ける（間違えると募集停止の可能性）</li>
+          <li><b>実績件数が多い人は対象外？</b>→ 1桁はOK、10件以上はNG</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 利用制限リスク -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">2</div><div class="sec-ttl">⚠️ 利用制限・掲載停止リスク一覧</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">リスク</span><span class="sc-ttl">危険度別：原因と対策</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <table class="rt">
+          <thead><tr><th>危険度</th><th>原因</th><th>対策</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge bd">高</span></td><td>LINE・電話番号・メールを募集文に直接記載</td><td>募集文には書かない。承認後に案内する</td></tr>
+            <tr><td><span class="badge bd">高</span></td><td>同一・類似案件を短期間に複数投稿</td><td>タイトル・文面・カテゴリを毎回変える</td></tr>
+            <tr><td><span class="badge bd">高</span></td><td>外部サービス登録や集客が主目的に見える</td><td>募集内容はSNS運用業務に絞る</td></tr>
+            <tr><td><span class="badge bd">高</span></td><td>停止後、原因不明のまま同じ文面で再投稿</td><td>一度止めて原因確認してから再開</td></tr>
+            <tr><td><span class="badge bw">中</span></td><td>業務内容が曖昧</td><td>SNS投稿作成・アカウント運用など実作業を書く</td></tr>
+            <tr><td><span class="badge bw">中</span></td><td>短時間の大量メッセージ</td><td>1時間5件まで。返信内容に合わせて送る</td></tr>
+            <tr><td><span class="badge bw">中</span></td><td>応募者の重複対応</td><td>スプシでユーザーネーム確認。赤セルは対応しない</td></tr>
+            <tr><td><span class="badge bw">中</span></td><td>雇用っぽい表現</td><td>勤務時間・シフト・採用枠などの言い方に注意</td></tr>
+          </tbody>
+        </table>
+        <div class="notice d">🚨 <b>一番危ない</b>のは、原因不明のまま同じ投稿・同じ文面・同じ送信ペースで再開すること</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAN対策・新アカウント -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">3</div><div class="sec-ttl">垢BAN対策・新アカウント作成</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">BAN</span><span class="sc-ttl">垢BANの主な原因</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li>同じIP・ネット環境で<b>複数アカウントを作成した</b></li>
+          <li>アカウント作成後、募集期間中に<b>応募者への対応を一切しなかった</b></li>
+          <li>本文に<b>規約違反の可能性がある文言</b>が含まれていた</li>
+        </ul>
+        <div class="notice d">🚨 投稿画面から仕事依頼ができない・エラーが表示された場合はアカウントBANの可能性あり。<b>すぐに佐々木に報告して対応を確認すること</b></div>
+      </div>
+    </div>
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">新規</span><span class="sc-ttl">新しいCWアカウントを作る手順</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice ok">📋 詳しい手順は <b>「🔑 CWアカウント作成」タブ</b> を確認してください</div>
+        <button onclick="sw('acc')" style="margin-top:.5rem;padding:.5rem 1.2rem;background:var(--acc);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">CWアカウント作成タブへ →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 利用制限が起きた時 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">4</div><div class="sec-ttl">利用制限・掲載停止が起きた時の対応</div></div>
+    <div class="sc open">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">緊急</span><span class="sc-ttl">停止時の対応手順</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li>まず<b>投稿・申請・メッセージ送信を止める</b></li>
+          <li>直近24〜72時間の投稿数・申請数・メッセージ数を確認</li>
+          <li>同一文面・外部誘導・承認前案内・直接連絡先の記載がなかったか確認</li>
+          <li>応募者対応中の人がいる場合、CW上で必要最低限の連絡のみ</li>
+          <li>原因が分かるまで同じ文面・同じ流れを繰り返さない</li>
+          <li>再開する場合は、投稿文・タイトル・カテゴリ・送信間隔を見直してから</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- アカウント管理 -->
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">5</div><div class="sec-ttl">CWアカウント管理</div></div>
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">管理</span><span class="sc-ttl">アカウントごとに把握・記録すべき項目</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <ul class="pl">
+          <li><b>担当者</b>：そのアカウントを使用している・していた担当者名</li>
+          <li><b>メールアドレス</b>：CWアカウント登録に使用しているメールアドレス</li>
+          <li><b>パスワード</b>：ログインパスワード（スプシで管理）</li>
+          <li><b>使用開始日</b>：アカウントの運用を開始した日</li>
+          <li><b>BAN・利用制限の発生日</b>：制限が発生した場合はいつ発生したか記録する</li>
+          <li><b>今後の使用可否</b>：使用中 / 利用制限中 / 使用不可（BAN）</li>
+        </ul>
+        <div class="notice d">🚨 アカウントに問題が起きたらすぐ佐々木に報告。原因が分からないまま同じアカウントで再開しないこと。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<button class="stbtn" id="stbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function sw(id){
+  document.querySelectorAll('.tab-c').forEach(el=>el.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(el=>el.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  document.querySelectorAll('.tb.t-'+id).forEach(el=>el.classList.add('on'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function tog(h){h.closest('.sc').classList.toggle('open');}
+function cp(btn,id){
+  const t=document.getElementById(id).innerText;
+  navigator.clipboard.writeText(t).then(()=>{
+    btn.textContent='✓ コピー済み';btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='コピー';btn.classList.remove('done');},2000);
+  });
+}
+window.addEventListener('scroll',()=>{
+  const b=document.getElementById('stbtn');
+  window.scrollY>400?b.classList.add('on'):b.classList.remove('on');
+});
+</script>
+</body>
+</html>
