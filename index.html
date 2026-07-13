@@ -13,7 +13,6 @@
   --faq:#7C3AED; --faq-l:#F5F3FF;
   --notes:#DC2626; --notes-l:#FEF2F2;
   --acc:#0F7A5A; --acc-l:#ECFDF5;
-  --inq:#DB2777; --inq-l:#FDF2F8;
   --body:#F4F5F7; --white:#fff;
   --border:#E4E7EC; --text:#1C1E21; --sub:#6B7280;
   --warn-bg:#FFFBEB; --warn-b:#F59E0B;
@@ -39,7 +38,6 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .tb.on.t-l    {color:var(--l);border-bottom-color:var(--l);}
 .tb.on.t-faq  {color:var(--faq);border-bottom-color:var(--faq);}
 .tb.on.t-notes{color:var(--notes);border-bottom-color:var(--notes);}
-.tb.on.t-inq  {color:var(--inq);border-bottom-color:var(--inq);}
 .t-notes .sec-n{background:var(--notes);}
 .t-notes .sc-badge{background:var(--notes-l);color:var(--notes);}
 .t-notes .fd{background:var(--notes);}
@@ -54,7 +52,6 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .hero.t-cw {background:linear-gradient(135deg,#1A6FC4,#3B82F6);}
 .hero.t-l  {background:linear-gradient(135deg,#E06A1A,#F59E0B);}
 .hero.t-faq{background:linear-gradient(135deg,#7C3AED,#A78BFA);}
-.hero.t-inq{background:linear-gradient(135deg,#DB2777,#F472B6);}
 .hero-icon{font-size:32px;flex-shrink:0;}
 .hero h1{font-size:18px;font-weight:700;color:#fff;}
 .hero p{font-size:12px;color:rgba(255,255,255,.85);margin-top:2px;}
@@ -67,7 +64,6 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .t-cw  .sec-n{background:var(--cw);}
 .t-l   .sec-n{background:var(--l);}
 .t-faq .sec-n{background:var(--faq);}
-.t-inq .sec-n{background:var(--inq);}
 .sec-ttl{font-size:15px;font-weight:700;}
 
 /* STEP CARD (collapsible) */
@@ -78,7 +74,6 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .t-cw  .sc-badge{background:var(--cw-l);color:var(--cw);}
 .t-l   .sc-badge{background:var(--l-l);color:var(--l);}
 .t-faq .sc-badge{background:var(--faq-l);color:var(--faq);}
-.t-inq .sc-badge{background:var(--inq-l);color:var(--inq);}
 .sc-ttl{font-size:13px;font-weight:600;flex:1;line-height:1.4;}
 .sc-arr{font-size:11px;color:var(--sub);transition:transform .2s;flex-shrink:0;}
 .sc.open .sc-arr{transform:rotate(180deg);}
@@ -165,7 +160,6 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
   <button class="tb t-l"      onclick="sw('l')">🟠 Lancers運用マニュアル</button>
   <button class="tb t-faq"    onclick="sw('faq')">❓ よくある質問</button>
   <button class="tb t-notes"  onclick="sw('notes')">⚠️ 注意事項</button>
-  <button class="tb t-inq"    onclick="sw('inq')">📩 問い合わせ回答集</button>
 </nav>
 
 <!-- =================== TAB: アカウント作成 =================== -->
@@ -848,83 +842,6 @@ https://lin.ee/SLTp8N8
       </div>
     </div>
   </div>
-</div>
-</div>
-
-<!-- =================== TAB: 問い合わせ回答集 =================== -->
-<!--
-  このタブは「CW上」または「予約用の公式LINE上」で来た質問と、その回答を
-  蓄積していくための場所です（運用者向けマニュアルとは別物）。
-
-  ▼ 新しい質問と回答を追記する時は、下の .sc ブロックを1つコピーして、
-    一番下（問い合わせ一覧の終わりの直前）に貼り付け、
-    ・sc-badge の番号（Q6, Q7…）
-    ・sc-ttl（質問を一言で要約したタイトル）
-    ・「Q:」の後ろの質問文
-    ・tmpl-box 内の回答文（id は inq6, inq7… のように必ず番号を変える）
-    を書き換えるだけでOKです。
--->
-<div id="tab-inq" class="tab-c t-inq">
-<div class="wrap">
-  <div class="hero t-inq">
-    <div class="hero-icon">📩</div>
-    <div>
-      <h1>問い合わせ回答集</h1>
-      <p>CW上・予約用の公式LINE上で来た質問への回答をためていくページです</p>
-    </div>
-  </div>
-
-  <div class="notice info">📌 ここは運用者向けマニュアルとは別の内容です。CW／公式LINEで似た質問が来た時に、同じトーンで返信できるように参考にしてください。今後も新しい質問が来るたびに、このページに追記していきます。</div>
-
-  <div class="sec">
-    <div class="sec-hdr"><div class="sec-n">Q</div><div class="sec-ttl">問い合わせ一覧</div></div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q1</span><span class="sc-ttl">体調不良でZoomセミナーを欠席する。後日動画は見られるか？</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice info"><b>Q:</b> 体調不良でZoomセミナーを欠席する。後日動画は見られるか？</div>
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq1')">コピー</button></div>
-        <div class="tmpl-box" id="inq1">ご連絡ありがとうございます◎ まずは体調を最優先に、ゆっくりお休みください。今回のZoomセミナーにつきましては、動画配信の予定はなく、ご参加いただいた方限定での開催となっております。ただ、セミナーでお伝えする内容については、後日会員サイト内のコンテンツとして掲載する予定です。（動画ではなく、コンテンツとしての掲載になります。）そちらをご確認いただき、学んでいただければと思います！</div></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q2</span><span class="sc-ttl">会員サイトにアクセスできなくなった</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice info"><b>Q:</b> 会員サイトにアクセスできなくなった。</div>
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq2')">コピー</button></div>
-        <div class="tmpl-box" id="inq2">ご連絡ありがとうございます。どのような画面が表示されてますでしょうか？スクリーンショット等で共有いただけますと幸いです</div></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q3</span><span class="sc-ttl">（指定日）まではガイドに沿って進めていく形でよいか？</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice info"><b>Q:</b> （指定日）まではガイドに沿って進めていく形でよいか？</div>
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq3')">コピー</button></div>
-        <div class="tmpl-box" id="inq3">はい！大丈夫です◎</div></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q4</span><span class="sc-ttl">専用LPリンクの貼り付けは、いつ頃がよいか？</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice info"><b>Q:</b> 専用LPリンクの貼り付けは、いつ頃がよいか？</div>
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq4')">コピー</button></div>
-        <div class="tmpl-box" id="inq4">専用リンクに関しましては、2週間経ったタイミングで貼り付けしていただいてOKです！</div></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q5</span><span class="sc-ttl">クリック数は増えているがLINE追加が伸びず、成果が出ずに心が折れている</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice info"><b>Q:</b> クリック数は増えているがLINE追加が伸びず、ブロックされることもあり、成果が出ずに心が折れている。</div>
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq5')">コピー</button></div>
-        <div class="tmpl-box" id="inq5">お疲れ様です！ご共有ありがとうございます！まず、クリック数が増えているのはすごく良い変化ですね👏 興味を持ってプロフィールまで来てくれる方は増えているので、方向性自体は間違っていないと思います！ただ、X運用はすぐに結果が出るものではなく、改善を繰り返しながら少しずつ伸びていく方がほとんどです😊 ここで諦めずに続けていくことが、成果につながっていきます！その上で一つお聞きしたいのですが、最近は会員サイトの動画やコンテンツは見られていますか？🤔 実際に投稿することも大切ですが、それと同じくらい学ぶ時間を作ることも大事です💡 また、セミナーにもまだ参加されていなかったと思うのですが、・X運用の考え方・伸びるアカウントの作り方・集客の本質など、普段の運用にすぐ活かせる内容が多いです😊 実際に伸びている方は、運用だけでなく学ぶ時間もしっかり取っている方が多いので、ぜひ一度参加してみてほしいです🙌 「実践」と「学ぶ」をセットで進めていくためにも、次回のセミナーは参加できそうでしょうか？？</div></div>
-      </div>
-    </div>
-
-  </div><!-- /問い合わせ一覧 -->
 </div>
 </div>
 
