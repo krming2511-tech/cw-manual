@@ -13,6 +13,7 @@
   --faq:#7C3AED; --faq-l:#F5F3FF;
   --notes:#DC2626; --notes-l:#FEF2F2;
   --acc:#0F7A5A; --acc-l:#ECFDF5;
+  --inq:#DB2777; --inq-l:#FDF2F8;
   --body:#F4F5F7; --white:#fff;
   --border:#E4E7EC; --text:#1C1E21; --sub:#6B7280;
   --warn-bg:#FFFBEB; --warn-b:#F59E0B;
@@ -38,6 +39,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .tb.on.t-l    {color:var(--l);border-bottom-color:var(--l);}
 .tb.on.t-faq  {color:var(--faq);border-bottom-color:var(--faq);}
 .tb.on.t-notes{color:var(--notes);border-bottom-color:var(--notes);}
+.tb.on.t-inq  {color:var(--inq);border-bottom-color:var(--inq);}
 .t-notes .sec-n{background:var(--notes);}
 .t-notes .sc-badge{background:var(--notes-l);color:var(--notes);}
 .t-notes .fd{background:var(--notes);}
@@ -52,6 +54,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .hero.t-cw {background:linear-gradient(135deg,#1A6FC4,#3B82F6);}
 .hero.t-l  {background:linear-gradient(135deg,#E06A1A,#F59E0B);}
 .hero.t-faq{background:linear-gradient(135deg,#7C3AED,#A78BFA);}
+.hero.t-inq{background:linear-gradient(135deg,#DB2777,#F472B6);}
 .hero-icon{font-size:32px;flex-shrink:0;}
 .hero h1{font-size:18px;font-weight:700;color:#fff;}
 .hero p{font-size:12px;color:rgba(255,255,255,.85);margin-top:2px;}
@@ -64,6 +67,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .t-cw  .sec-n{background:var(--cw);}
 .t-l   .sec-n{background:var(--l);}
 .t-faq .sec-n{background:var(--faq);}
+.t-inq .sec-n{background:var(--inq);}
 .sec-ttl{font-size:15px;font-weight:700;}
 
 /* STEP CARD (collapsible) */
@@ -74,6 +78,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .t-cw  .sc-badge{background:var(--cw-l);color:var(--cw);}
 .t-l   .sc-badge{background:var(--l-l);color:var(--l);}
 .t-faq .sc-badge{background:var(--faq-l);color:var(--faq);}
+.t-inq .sc-badge{background:var(--inq-l);color:var(--inq);}
 .sc-ttl{font-size:13px;font-weight:600;flex:1;line-height:1.4;}
 .sc-arr{font-size:11px;color:var(--sub);transition:transform .2s;flex-shrink:0;}
 .sc.open .sc-arr{transform:rotate(180deg);}
@@ -160,6 +165,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
   <button class="tb t-l"      onclick="sw('l')">🟠 Lancers運用マニュアル</button>
   <button class="tb t-faq"    onclick="sw('faq')">❓ よくある質問</button>
   <button class="tb t-notes"  onclick="sw('notes')">⚠️ 注意事項</button>
+  <button class="tb t-inq"    onclick="sw('inq')">📩 問い合わせ回答集</button>
 </nav>
 
 <!-- =================== TAB: アカウント作成 =================== -->
@@ -842,6 +848,38 @@ https://lin.ee/SLTp8N8
       </div>
     </div>
   </div>
+</div>
+</div>
+
+<!-- =================== TAB: 問い合わせ回答集 =================== -->
+<!--
+  このタブは「CW上」または「予約用の公式LINE上」で来た質問と、その回答を
+  蓄積していくための場所です（運用者向けマニュアルとは別物）。
+
+  新しい質問と回答を追記する時は、下の .sc ブロックを1つコピーして、
+  一番下（問い合わせ一覧の終わりの直前）に貼り付け、
+  ・sc-badge の番号（Q1, Q2…）
+  ・sc-ttl（質問を一言で要約したタイトル）
+  ・「Q:」の後ろの質問文
+  ・tmpl-box 内の回答文（id は inq1, inq2… のように必ず番号を変える）
+  を書き換えるだけでOKです。
+-->
+<div id="tab-inq" class="tab-c t-inq">
+<div class="wrap">
+  <div class="hero t-inq">
+    <div class="hero-icon">📩</div>
+    <div>
+      <h1>問い合わせ回答集</h1>
+      <p>CW上・予約用の公式LINE上で来た質問への回答をためていくページです</p>
+    </div>
+  </div>
+
+  <div class="notice info">📌 ここは運用者向けマニュアルとは別の内容です。CW上や、面談予約用の公式LINEから連絡が来た方への返信で、似た質問が来た時に同じトーンで返信できるように参考にしてください。今後、質問が来るたびにこのページに追記していきます。</div>
+
+  <div class="sec">
+    <div class="sec-hdr"><div class="sec-n">Q</div><div class="sec-ttl">問い合わせ一覧</div></div>
+    <div class="notice w">🚧 まだ登録がありません。CW・公式LINEで質問が来たら、ここに追記していきます。</div>
+  </div><!-- /問い合わせ一覧 -->
 </div>
 </div>
 
