@@ -656,76 +656,8 @@ https://buppan.go-careercraft.com/join/U008
     </div>
   </div>
 
-  <!-- 対応パターン（定型文） -->
   <div class="sec">
-    <div class="sec-hdr"><div class="sec-n">3</div><div class="sec-ttl">よくある対応パターン（CW・定型文）</div></div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">CW対応</span><span class="sc-ttl">顔出しなしでいいか聞かれた場合</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">返信テンプレート</span><button class="cpbtn" onclick="cp(this,'p1')">コピー</button></div>
-        <div class="tmpl-box" id="p1">○○様、ご連絡ありがとうございます。
-
-お仕事のお話になるため、お顔を見ながらお話をさせていただいています。
-
-尚、面談は１対１で行いますのでご安心ください。</div></div>
-        <div class="notice d">🚫 それでも拒否された場合は<b>お断りする</b></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">CW対応</span><span class="sc-ttl">法人・株式会社からの応募</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice d">🚫 対象外。自己紹介文に「株式会社」と書いてある場合も同様</div>
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">お断りテンプレート</span><button class="cpbtn" onclick="cp(this,'p2')">コピー</button></div>
-        <div class="tmpl-box" id="p2">○○様
-このたびは弊社募集案件にご興味をお寄せいただき、誠にありがとうございます。
-
-大変恐れ入りますが、本案件は【個人ワーカー様（個人事業主・副業希望者）限定】でお手伝いをお願いしております。
-
-恐れ入りますが今回の募集に関しましてはご応募をお控えいただけますと幸いです。
-何卒ご理解賜りますようお願い申し上げます。</div></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">CW対応</span><span class="sc-ttl">辞退の場合</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">辞退テンプレート</span><button class="cpbtn" onclick="cp(this,'p3')">コピー</button></div>
-        <div class="tmpl-box" id="p3">かしこまりました。
-
-この度は弊社のお仕事にご応募いただきありがとうございました。
-○様の今後のご活躍を心よりお祈り申し上げます。</div></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">CW対応</span><span class="sc-ttl">サービス外申請が否認された場合</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="notice w">⚠️ <b>1人だけ否認された場合</b>→ 相手側の問題の可能性が高い。深く関わらず切る方向で。</div>
-        <div class="notice d">🚨 <b>複数申請して複数否認された場合</b>→ アカウントBANの可能性あり。<b>注意事項タブの「垢BAN対策」を確認して対応</b></div>
-      </div>
-    </div>
-
-    <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">CW対応</span><span class="sc-ttl">LINEリンクがエラーになった場合</span><span class="sc-arr">▼</span></div>
-      <div class="sc-b">
-        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">代替リンクテンプレート</span><button class="cpbtn" onclick="cp(this,'p4')">コピー</button></div>
-        <div class="tmpl-box" id="p4">お世話になっております。大変お待たせしております。
-
-こちらのリンクから登録をお願いできますでしょうか？
-https://lin.ee/SLTp8N8
-
-登録後、Xマーケ▶︎物販Xマーケに応募をお選びいただき、調整いただければと思います。
-
-ご不明点等ありましたら、ご連絡いただければ幸いです。
-よろしくお願いいたします！</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="sec-hdr"><div class="sec-n">4</div><div class="sec-ttl">Lancers特有のQ&A</div></div>
+    <div class="sec-hdr"><div class="sec-n">3</div><div class="sec-ttl">Lancers特有のQ&A</div></div>
     <div class="sc open">
       <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Lancers</span><span class="sc-ttl">LancersQ&A一覧</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
@@ -858,10 +790,10 @@ https://lin.ee/SLTp8N8
 
   新しい質問と回答を追記する時は、下の .sc ブロックを1つコピーして、
   一番下（問い合わせ一覧の終わりの直前）に貼り付け、
-  ・sc-badge の番号（Q1, Q2…）
+  ・sc-badge の番号（次はQ6、その次はQ7…）
   ・sc-ttl（質問を一言で要約したタイトル）
   ・「Q:」の後ろの質問文
-  ・tmpl-box 内の回答文（id は inq1, inq2… のように必ず番号を変える）
+  ・tmpl-box 内の回答文（id は inq5, inq6… のように必ず番号を変える。すでに inq1〜inq4 を使用中）
   を書き換えるだけでOKです。
 -->
 <div id="tab-inq" class="tab-c t-inq">
@@ -878,7 +810,74 @@ https://lin.ee/SLTp8N8
 
   <div class="sec">
     <div class="sec-hdr"><div class="sec-n">Q</div><div class="sec-ttl">問い合わせ一覧</div></div>
-    <div class="notice w">🚧 まだ登録がありません。CW・公式LINEで質問が来たら、ここに追記していきます。</div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q1</span><span class="sc-ttl">顔出しなしでもいいか聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice info"><b>Q:</b> 顔出しなしでも大丈夫ですか？</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq1')">コピー</button></div>
+        <div class="tmpl-box" id="inq1">○○様、ご連絡ありがとうございます。
+
+お仕事のお話になるため、お顔を見ながらお話をさせていただいています。
+
+尚、面談は１対１で行いますのでご安心ください。</div></div>
+        <div class="notice d">🚫 それでも拒否された場合は<b>お断りする</b></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q2</span><span class="sc-ttl">法人・株式会社からの応募だった場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice info"><b>Q:</b> 応募者が法人・株式会社だった場合（自己紹介文に「株式会社」と記載がある場合も含む）の対応</div>
+        <div class="notice d">🚫 対象外。自己紹介文に「株式会社」と書いてある場合も同様</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（お断りテンプレート）</span><button class="cpbtn" onclick="cp(this,'inq2')">コピー</button></div>
+        <div class="tmpl-box" id="inq2">○○様
+このたびは弊社募集案件にご興味をお寄せいただき、誠にありがとうございます。
+
+大変恐れ入りますが、本案件は【個人ワーカー様（個人事業主・副業希望者）限定】でお手伝いをお願いしております。
+
+恐れ入りますが今回の募集に関しましてはご応募をお控えいただけますと幸いです。
+何卒ご理解賜りますようお願い申し上げます。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q3</span><span class="sc-ttl">こちらから辞退を伝える場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice info"><b>Q:</b> こちらから辞退を伝える場合の返信</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（辞退テンプレート）</span><button class="cpbtn" onclick="cp(this,'inq3')">コピー</button></div>
+        <div class="tmpl-box" id="inq3">かしこまりました。
+
+この度は弊社のお仕事にご応募いただきありがとうございました。
+○様の今後のご活躍を心よりお祈り申し上げます。</div></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q4</span><span class="sc-ttl">サービス外申請が否認された場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice info"><b>Q:</b> サービス外申請が否認された場合の対応は？</div>
+        <div class="notice w">⚠️ <b>1人だけ否認された場合</b>→ 相手側の問題の可能性が高い。深く関わらず切る方向で。</div>
+        <div class="notice d">🚨 <b>複数申請して複数否認された場合</b>→ アカウントBANの可能性あり。<b>注意事項タブの「垢BAN対策」を確認して対応</b></div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q5</span><span class="sc-ttl">案内したLINEリンクがエラーになった場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-b">
+        <div class="notice info"><b>Q:</b> ご案内したLINEリンクがエラーになると言われた場合の対応</div>
+        <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（代替リンクテンプレート）</span><button class="cpbtn" onclick="cp(this,'inq4')">コピー</button></div>
+        <div class="tmpl-box" id="inq4">お世話になっております。大変お待たせしております。
+
+こちらのリンクから登録をお願いできますでしょうか？
+https://lin.ee/SLTp8N8
+
+登録後、Xマーケ▶︎物販Xマーケに応募をお選びいただき、調整いただければと思います。
+
+ご不明点等ありましたら、ご連絡いただければ幸いです。
+よろしくお願いいたします！</div></div>
+      </div>
+    </div>
   </div><!-- /問い合わせ一覧 -->
 </div>
 </div>
