@@ -114,7 +114,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 .fline{width:2px;flex:1;min-height:20px;background:var(--border);margin:2px 0;}
 .fc{background:#fff;border:1px solid var(--border);border-radius:9px;padding:.55rem .85rem;font-size:12.5px;flex:1;margin-bottom:6px;line-height:1.55;}
 .fc strong{font-weight:700;display:block;}
-.fc span{color:var(--sub);font-size:11.5px;}
+.fc span{color:#B45309;font-size:11.5px;font-weight:600;}
 
 /* TEMPLATE */
 .tmpl{margin:.65rem 0;}
@@ -136,8 +136,8 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
 
 /* CW ACCOUNT STEPS (large numbered) */
 .big-step{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.85rem;}
-.big-n{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
-.t-acc .big-n{background:var(--acc);}
+.big-n{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0;margin-top:2px;background:#fff;border:2px solid var(--acc);}
+.t-acc .big-n{color:var(--acc);}
 .big-body{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;flex:1;}
 .big-body h4{font-size:13.5px;font-weight:700;margin-bottom:.3rem;}
 .big-body p{font-size:12.5px;color:#374151;line-height:1.6;}
@@ -209,15 +209,19 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
     <div class="notice w">⚠️ 本登録用URLの有効期限は <b>発行から24時間</b>。期限切れの場合は再度メールアドレス入力（仮登録）からやり直す。</div>
 
     <div class="sc" style="margin-top:.75rem;">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">注意</span><span class="sc-ttl">📱 スマートフォンで連続してアカウントを作成する場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">注意</span><span class="sc-ttl">📱 連続してアカウントを作成する場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
-        <div class="notice d">🚨 スマートフォンで複数のCWアカウントを連続作成する場合は以下の手順を守ること</div>
+        <div class="notice d">🚨 複数のCWアカウントを連続作成する場合は、スマートフォン・パソコンどちらでも以下の手順を守ること</div>
+        <div class="sub-l">スマートフォンの場合</div>
         <ul class="pl">
           <li>1つ目のアカウントを作成後、<b>機内モードをON</b> にする</li>
           <li><b>15〜30分</b> そのまま時間を置く</li>
           <li>機内モードを <b>OFF</b> にし、<b>Wi-Fiは使わず</b> モバイルデータ通信で次のアカウントを作成する</li>
         </ul>
-        <div class="notice ok">💡 <b>パソコンで作成する場合はこの限りではありません</b></div>
+        <div class="sub-l">パソコンの場合</div>
+        <ul class="pl">
+          <li>1つ目のアカウントを作成後、<b>15〜30分</b> 時間を空けてから次のアカウントを作成する</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -255,7 +259,11 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
       <h4>会社概要を入力する</h4>
       <p>マイページ → プロフィール編集 → 左メニュー「<b>会社情報編集</b>」を開く。<br>
       「会社概要（必須）」欄に事業内容を入力して「<b>会社情報を登録する</b>」を押す。<br>
-      <span style="color:var(--sub);font-size:12px;">※ スプシで指定された内容、または担当者に確認してから入力する</span></p>
+      <span style="color:var(--sub);font-size:12px;">※ 担当するカテゴリ（SNS運用／アフィリ）に合わせて、下のテンプレートをコピペして使う</span></p>
+      <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">会社概要（SNS運用の場合）</span><button class="cpbtn" onclick="cp(this,'company1')">コピー</button></div>
+      <div class="tmpl-box" id="company1">（準備中：SNS運用アカウント用の会社概要テンプレートをここに入れます）</div></div>
+      <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">会社概要（アフィリの場合）</span><button class="cpbtn" onclick="cp(this,'company2')">コピー</button></div>
+      <div class="tmpl-box" id="company2">（準備中：アフィリアカウント用の会社概要テンプレートをここに入れます）</div></div>
     </div></div>
 
     <div class="big-step"><div class="big-n">3</div><div class="big-body">
@@ -301,6 +309,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
   </div>
 
   <div class="qwarn">⚠️ 最初の1日はその都度LINEで確認しながら対応すること</div>
+  <div class="qwarn">📅 CW運営は土日祝がお休み。金・土・日に出したサービス外申請は月曜にまとめて承認される。新規投稿やサービス外申請も、休み明け（月曜）に動きが集中することを想定しておく</div>
 
   <!-- 1日の基本型 -->
   <div class="sec">
@@ -315,8 +324,8 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
         </div>
         <div class="sub-l">迷った時の優先順位</div>
         <ul class="pl">
-          <li>承認前に外部リンクを案内しない</li>
-          <li>否認された応募者には追加連絡しない</li>
+          <li>サービス外連絡申請の承認が下りる前に外部リンク（LINE等）を案内しない</li>
+          <li>サービス外連絡申請が否認された応募者には追加連絡しない</li>
         </ul>
       </div>
     </div>
@@ -333,6 +342,7 @@ body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--body);
           <li>SNS運用の実作業が伝わる内容になっている</li>
           <li>雇用契約に見える表現がない（勤務時間・シフトなど）</li>
           <li>報酬や成果を誇大に見せていない</li>
+          <li>改行や段落分けがされていて、読み手にとって見やすい文章になっている（読みたくなる一工夫があるとGOOD）</li>
         </ul>
       </div>
     </div>
