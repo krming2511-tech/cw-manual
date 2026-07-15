@@ -829,8 +829,7 @@ https://buppan.go-careercraft.com/join/U008
   1. まず「CW上」か「公式LINE上」どちらで来た質問かを判断する
   2. 近いジャンルの見出しを探し、そのジャンルの最後に下の .sc ブロックを1つコピーして貼り付ける
      （近いジャンルがなければ、見出し（border-left付きのdiv）ごとコピーして新しいジャンルを作ってOK）
-  3. 貼り付けたら以下を書き換える
-     ・sc-badge の番号（今使われている最大の番号の次の数字。現在の最大はQ25なので次はQ26）
+  3. 貼り付けたら以下を書き換える（sc-badgeの中身は「Q」のまま、番号は付けない）
      ・sc-ttl（質問を一言で要約したタイトル）
      ・「Q:」の後ろの質問文
      ・tmpl-box 内の回答文（id は inq25, inq26… のように必ず番号を変える。すでに inq1〜inq24 を使用中）
@@ -855,7 +854,7 @@ https://buppan.go-careercraft.com/join/U008
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">🏢 会社について</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q6</span><span class="sc-ttl">会社の詳細が知りたい・HPはあるか聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">会社の詳細が知りたい・HPはあるか聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 会社の詳細が知りたい or HPはありますか？</div>
         <div class="notice w">⚠️ 必ずしも聞かれた人全員に送っているわけではないので、送るかどうかは要相談</div>
@@ -881,14 +880,14 @@ https://buppan.go-careercraft.com/join/U008
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q10</span><span class="sc-ttl">毎月どのくらいの契約があるか聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">毎月どのくらいの契約があるか聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 毎月どのくらいの契約があるか</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq9')">コピー</button></div>
         <div class="tmpl-box" id="inq9">お世話になっております。
 ご質問ありがとうございます😌
 
-変動はあるのですが、毎月50名〜70名ほど採用させていただいていただき弊社で活動されております！
+変動はあるのですが、毎月20名〜30名ほど採用させていただいていただき弊社で活動されております！
 
 その他ご質問等ございましたら、お気軽にご質問いただければと思います。</div></div>
       </div>
@@ -897,7 +896,7 @@ https://buppan.go-careercraft.com/join/U008
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1.25rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">🗓️ 面談について</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q1</span><span class="sc-ttl">顔出しなしでもいいか聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">顔出しなしでもいいか聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 顔出しなしでも大丈夫ですか？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq1')">コピー</button></div>
@@ -911,7 +910,7 @@ https://buppan.go-careercraft.com/join/U008
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q8</span><span class="sc-ttl">面談ではどのようなお話をするんですか？</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">面談ではどのようなお話をするんですか？</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 面談ではどのようなお話をするんですか？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq7')">コピー</button></div>
@@ -922,7 +921,7 @@ https://buppan.go-careercraft.com/join/U008
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q9</span><span class="sc-ttl">面談時の服装や用意するものはありますか？</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">面談時の服装や用意するものはありますか？</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 面談時の服装や用意するものなどありますか？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq8')">コピー</button></div>
@@ -935,21 +934,18 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q12</span><span class="sc-ttl">面談の所要時間を聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">面談の所要時間を聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b>（日程確定の返信とあわせて）所要時間はどのくらいでしょうか？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq11')">コピー</button></div>
         <div class="tmpl-box" id="inq11">かしこまりました！
 ご質問ありがとうございます😊
-1時間ほどみていただければ大丈夫です！
-また前日に採用担当よりご挨拶も兼ねてご連絡させていただきます😌
-
-そちらにもお返事いただきますようお願いいたします。</div></div>
+1時間ほどみていただければ大丈夫です！</div></div>
       </div>
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q16</span><span class="sc-ttl">「チャットがいい・持病がある」と言われた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">顔出し・ビデオ通話が難しい事情がある場合（体調等）</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> チャットがいい。持病あり（顔出し・ビデオ通話が難しいと言われた場合）</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq15')">コピー</button></div>
@@ -961,7 +957,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q22</span><span class="sc-ttl">「文面だけのやり取りでもいいか」と聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">特に理由なく文面だけでのやり取りを希望された場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 文面だけでもいいのか？（ビデオ通話ではなく文字だけでのやり取りを希望された場合）</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq21')">コピー</button></div>
@@ -977,7 +973,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q25</span><span class="sc-ttl">画面ON/OFFを聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">画面ON/OFFを聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 画面ON/OFFを聞かれたら</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq24')">コピー</button></div>
@@ -992,7 +988,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1.25rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">💼 お仕事内容について</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q18</span><span class="sc-ttl">勤務形態・所在地・必要スキル・勤務時間を聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">勤務形態・所在地・必要スキル・勤務時間を聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 勤務形態、所在地、必要スキル、勤務時間</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq17')">コピー</button></div>
@@ -1016,20 +1012,20 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q19</span><span class="sc-ttl">「アカウント運用とは？」と聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">「アカウント運用とは？」と聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> アカウント運用とは？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq18')">コピー</button></div>
         <div class="tmpl-box" id="inq18">お返事ありがとうございます！
 
-業務内容に関しましては、簡単にお伝えしますとInstagramの投稿を作成していただき、ご自身で運用していただく内容となっております。
+業務内容に関しましては、簡単にお伝えしますとSNSの投稿を作成していただき、ご自身で運用していただく内容となっております。
 
 具体的な業務内容といたしましては面談時にお話しさせていただいておりますがいかがでしょうか。</div></div>
       </div>
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q23</span><span class="sc-ttl">「どのくらい投稿した方がいいか」聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">「どのくらい投稿した方がいいか」聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> どのくらい投稿した方がいいのか</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq22')">コピー</button></div>
@@ -1048,7 +1044,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1.25rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">📋 応募・申請の流れ</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q2</span><span class="sc-ttl">法人・株式会社からの応募だった場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">法人・株式会社からの応募だった場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 応募者が法人・株式会社だった場合（自己紹介文に「株式会社」と記載がある場合も含む）の対応</div>
         <div class="notice d">🚫 対象外。自己紹介文に「株式会社」と書いてある場合も同様</div>
@@ -1067,9 +1063,9 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q3</span><span class="sc-ttl">こちらから辞退を伝える場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">応募者から辞退の連絡があった場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
-        <div class="notice info"><b>Q:</b> こちらから辞退を伝える場合の返信</div>
+        <div class="notice info"><b>Q:</b> 応募者から辞退の連絡があった場合の返信</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（辞退テンプレート）</span><button class="cpbtn" onclick="cp(this,'inq3')">コピー</button></div>
         <div class="tmpl-box" id="inq3">かしこまりました。
 
@@ -1079,7 +1075,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q17</span><span class="sc-ttl">面談履歴のある方（面談済み）だと分かった場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">面談履歴のある方（面談済み）だと分かった場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 応募者の登録内容を確認したら、以前に面談済みの方と同一人物だった</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq16')">コピー</button></div>
@@ -1096,7 +1092,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q21</span><span class="sc-ttl">「公式LINEでのやり取りをCWでできないか」と聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">「公式LINEでのやり取りをCWでできないか」と聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 公式ラインでやりとりする場合はクラウドワークスではどうか</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq20')">コピー</button></div>
@@ -1106,7 +1102,7 @@ zoomというアプリを使用してオンライン面談行いますので、z
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q24</span><span class="sc-ttl">サービス外連絡申請に難色を示す返信が来た場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">サービス外連絡申請に難色を示す返信が来た場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b>（サービス外連絡申請について）難色を示す返信が来た場合</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq23')">コピー</button></div>
@@ -1128,19 +1124,20 @@ zoomというアプリを使用してオンライン面談行いますので、z
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1.25rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">🚨 トラブル対応</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q5</span><span class="sc-ttl">案内したLINEリンクがエラーになった場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">案内したLINEリンクがエラーになった場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> ご案内したLINEリンクがエラーになると言われた場合の対応</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（代替リンクテンプレート）</span><button class="cpbtn" onclick="cp(this,'inq4')">コピー</button></div>
         <div class="tmpl-box" id="inq4">お世話になっております。大変お待たせしております。
 
 こちらのリンクから登録をお願いできますでしょうか？
-https://lin.ee/SLTp8N8
+（要確認：現在ご自身が使っている公式LINEのリンクを貼る）
 
-登録後、Xマーケ▶︎物販Xマーケに応募をお選びいただき、調整いただければと思います。
+登録後、担当者（ご自身の名前）をお選びいただき、日程調整をお願いできればと思います。
 
 ご不明点等ありましたら、ご連絡いただければ幸いです。
 よろしくお願いいたします！</div></div>
+        <div class="notice w">⚠️ リンクURLは都度変わる可能性があるため、送る前に必ず現在のリンクを確認すること</div>
       </div>
     </div>
 
@@ -1149,7 +1146,7 @@ https://lin.ee/SLTp8N8
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">💼 お仕事内容について</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q13</span><span class="sc-ttl">CWに掲載されていた内容での働き方は可能か聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">CWに掲載されていた内容での働き方は可能か聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> この前はありがとうございました。検討したのですが、CrowdWorksに掲載されていた内容での働き方でお力になることは可能でしょうか？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（1通目：確認する旨）</span><button class="cpbtn" onclick="cp(this,'inq12')">コピー</button></div>
@@ -1166,9 +1163,9 @@ https://lin.ee/SLTp8N8
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1.25rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">🪑 採用枠のご案内</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q14</span><span class="sc-ttl">採用枠確認後のフォロー連絡</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">採用枠確認後のフォロー連絡</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
-        <div class="notice info"><b>Q:</b>（Q13で「確認する」と伝えた後のフォロー）採用枠の確認結果を伝える</div>
+        <div class="notice info"><b>Q:</b>（「CWに掲載されていた内容での働き方は可能か」に対して確認する旨を伝えた後のフォロー）採用枠の確認結果を伝える</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答（2通目：確認結果）</span><button class="cpbtn" onclick="cp(this,'inq13')">コピー</button></div>
         <div class="tmpl-box" id="inq13">ただいま採用枠の確認をしたところ、アルバイトの枠(月間5名)は、昨日で埋まってしまったようでして、業務委託の採用枠の方は残り1枠空きがあるようです。
 
@@ -1178,7 +1175,7 @@ https://lin.ee/SLTp8N8
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q20</span><span class="sc-ttl">翌月に再度連絡があり「アルバイトの枠はあるか」と聞かれた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">翌月に再度連絡があり「アルバイトの枠はあるか」と聞かれた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b>（翌月に再度連絡あり）アルバイトの枠はありますか？</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq19')">コピー</button></div>
@@ -1197,7 +1194,7 @@ https://lin.ee/SLTp8N8
     <div style="font-size:12.5px;font-weight:700;color:var(--inq);margin:1.25rem 0 .5rem;padding-left:.5rem;border-left:3px solid var(--inq);">📩 ご返答への対応</div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q11</span><span class="sc-ttl">「検討して再度ご連絡します」と言われた場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">「検討して再度ご連絡します」と言われた場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
         <div class="notice info"><b>Q:</b> 検討して再度ご連絡します！</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq10')">コピー</button></div>
@@ -1206,9 +1203,9 @@ https://lin.ee/SLTp8N8
     </div>
 
     <div class="sc">
-      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q15</span><span class="sc-ttl">案内に対して「NO」と返答された場合</span><span class="sc-arr">▼</span></div>
+      <div class="sc-h" onclick="tog(this)"><span class="sc-badge">Q</span><span class="sc-ttl">案内に対して「NO」と返答された場合</span><span class="sc-arr">▼</span></div>
       <div class="sc-b">
-        <div class="notice info"><b>Q:</b>（Q14の案内に対して）NO、という返答が来た場合</div>
+        <div class="notice info"><b>Q:</b>（採用枠確認後のフォロー連絡に対して）NO、という返答が来た場合</div>
         <div class="tmpl"><div class="tmpl-hdr"><span class="tmpl-lbl">回答</span><button class="cpbtn" onclick="cp(this,'inq14')">コピー</button></div>
         <div class="tmpl-box" id="inq14">承知いたしました。
 そうしましたら、今回のご応募の方はキャンセル処理させていただきます。
